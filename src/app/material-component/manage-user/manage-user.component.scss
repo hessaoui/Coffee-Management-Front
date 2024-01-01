@@ -1,0 +1,57 @@
+// Global styles
+$primary-color: #1976D2; // Adjust the color to your preference
+
+// Apply styles to mat-form-field
+mat-form-field {
+  padding: 8px; // Increase padding for better spacing
+  width: 100%; // Ensure full width
+}
+
+// Apply styles to the submit button
+.float-right {
+  float: right;
+  margin-top: 10px; // Add some top margin for separation
+}
+
+// Apply styles to tables
+table {
+  width: 100%;
+  border-collapse: collapse; // Ensure borders collapse
+  margin-bottom: 15px; // Add bottom margin for separation
+}
+
+// Apply styles to mat-card
+mat-card {
+  padding: 20px; // Increase overall padding
+  margin-bottom: 20px; // Add bottom margin for separation
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Add a subtle box shadow
+}
+
+// Apply styles to form fields
+mat-form-field {
+  width: 100%; // Ensure full width
+  margin-bottom: 15px; // Add bottom margin for separation
+}
+
+// Apply styles to mat-select
+mat-select {
+  width: 100%; // Ensure full width
+}
+
+// Apply styles to mat-option
+mat-option {
+  padding: 10px; // Add padding for better spacing
+}
+
+// Apply styles to mat-error
+mat-error {
+  color: $primary-color; // Use the primary color for error messages
+  font-size: 12px; // Adjust font size for better readability
+}
+
+// Media query for responsive design
+@media screen and (max-width: 600px) {
+  mat-form-field {
+    width: 100%; // Adjust width for smaller screens
+  }
+}

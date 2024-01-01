@@ -26,6 +26,9 @@ import { ManageCategoryComponent } from './material-component/manage-category/ma
 import { CategoryComponent } from './material-component/dialog/category/category.component';
 import { ProductComponent } from './material-component/dialog/product/product.component';
 import { ManageProductComponent } from './material-component/manage-product/manage-product.component';
+import { ManageOrderComponent } from './material-component/manage-order/manage-order.component';
+import { ViewBillComponent } from './material-component/view-bill/view-bill.component';
+import { ManageUserComponent } from './material-component/manage-user/manage-user.component';
 
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
@@ -56,7 +59,10 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     ManageCategoryComponent,
     CategoryComponent,
     ProductComponent,
-    ManageProductComponent
+    ManageProductComponent,
+    ManageOrderComponent,
+    ViewBillComponent,
+    ManageUserComponent
    ],
   imports: [
     BrowserModule,
