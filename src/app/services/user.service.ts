@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root',
 })
 export class UserService {
-  url = environment.apiUrl;
+  private url = environment.apiUrl;
   constructor(private httpClient: HttpClient) { }
 
   signup(data: any) {

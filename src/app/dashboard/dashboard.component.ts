@@ -3,6 +3,7 @@ import { DashboardService } from '../services/dashboard.service';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { SnackbarService } from '../services/snackbar.service';
 import { GlobalConstants } from '../shared/global-constants';
+import { Chart, ChartConfiguration, ChartTypeRegistry, DoughnutControllerChartOptions } from 'chart.js/auto';
 
 @Component({
 	selector: 'app-dashboard',
@@ -12,8 +13,9 @@ import { GlobalConstants } from '../shared/global-constants';
 export class DashboardComponent implements AfterViewInit {
 	responseMessage:any;
 	data:any;
+	categoryChart:any;
 
-	ngAfterViewInit() { }
+	ngAfterViewInit() { this.dashboardData(); }
 
 	constructor(
 		private dashboardService:DashboardService,

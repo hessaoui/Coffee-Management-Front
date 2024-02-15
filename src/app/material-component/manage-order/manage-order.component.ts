@@ -182,13 +182,25 @@ export class ManageOrderComponent implements OnInit {
     })
   }
 
-  downloadFile(fileName:any) {
-    var data = {
+  downloadFile(fileName: any): void {
+    const data = {
       uuid: fileName
-    }
-    this.billService.getPDF(data).subscribe((response) => {
-      saveAs(response, fileName + '.pdf');
-      this.ngxService.stop();
-    })
+    };
+
+    this.billService.getPDF(data).subscribe(
+      (response: Blob) => {
+        this.saveFile(response, `${fileName}.pdf`);
+        this.ngxService.stop();
+      },
+      (error) => {
+        // Handle error if needed
+        console.error('Error downloading file:', error);
+        this.ngxService.stop();
+      }
+    );
+  }
+
+  private saveFile(blob: Blob, fileName: string): void {
+    saveAs(blob, fileName);
   }
 }

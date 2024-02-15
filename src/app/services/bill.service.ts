@@ -1,35 +1,34 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BillService {
-  url = environment.apiUrl;
+  private apiUrl = environment.apiUrl;
 
-  constructor(
-    private httpClient: HttpClient
-  ) { }
+  constructor(private httpClient: HttpClient) {}
 
-  generateReport(data:any) {
-    return this.httpClient.post(this.url + "/bill/generateReport/", data, {
-      headers: new HttpHeaders().set('Content-Type', "application/json")
-    })
+  generateReport(data: any): Observable<any> {
+    return this.httpClient.post(`${this.apiUrl}/bill/generateReport/`, data, {
+      headers: new HttpHeaders().set('Content-Type', 'application/json')
+    });
   }
 
-  getPDF(data:any):Observable<Blob> {
-    return this.httpClient.post(this.url + "/bill/getPdf", data, {responseType:'blob'});
+  getPDF(uuid: any): Observable<Blob> {
+    const data = { uuid: uuid };
+    return this.httpClient.post(`${this.apiUrl}/bill/getPdf`, data, { responseType: 'blob' });
   }
 
-  getBills() {
-    return this.httpClient.get(this.url + "/bill/getBills/");
+  getBills(): Observable<any> {
+    return this.httpClient.get(`${this.apiUrl}/bill/getBills/`);
   }
 
-  delete(id:any) {
-    return this.httpClient.delete(this.url + "/bill/delete/" + id, {
-      headers: new HttpHeaders().set('Content-Type', "application/json")
+  delete(id: any): Observable<any> {
+    return this.httpClient.delete(`${this.apiUrl}/bill/delete/${id}`, {
+      headers: new HttpHeaders().set('Content-Type', 'application/json')
     });
   }
 }
