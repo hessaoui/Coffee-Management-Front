@@ -19,7 +19,7 @@ export class BillService {
 
   getPDF(uuid: any): Observable<Blob> {
     const data = { uuid: uuid };
-    return this.httpClient.post(`${this.apiUrl}/bill/getPdf`, data, { responseType: 'blob' });
+    return this.httpClient.post(`${this.apiUrl}/bill/getPdf/`, data, { responseType: 'blob' });
   }
 
   getBills(): Observable<any> {
